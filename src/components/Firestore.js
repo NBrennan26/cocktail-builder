@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBJY52bXdS76unbcrN0GgUiNq2i8iSyayo",
-    authDomain: "cocktailbuilder-112fc.firebaseapp.com",
-    projectId: "cocktailbuilder-112fc",
-    storageBucket: "cocktailbuilder-112fc.appspot.com",
-    messagingSenderId: "643118910965",
-    appId: "1:643118910965:web:5b2d391e385090a824e4bc",
-    measurementId: "G-X0R3MB6M6D"
+  apiKey: "AIzaSyBJY52bXdS76unbcrN0GgUiNq2i8iSyayo",
+  authDomain: "cocktailbuilder-112fc.firebaseapp.com",
+  projectId: "cocktailbuilder-112fc",
+  storageBucket: "cocktailbuilder-112fc.appspot.com",
+  messagingSenderId: "643118910965",
+  appId: "1:643118910965:web:5b2d391e385090a824e4bc",
+  measurementId: "G-X0R3MB6M6D",
 };
 
 const app = initializeApp(firebaseConfig);

@@ -12,17 +12,17 @@ import About from "./About";
 
 function PageMain() {
   return (
-  <div id="page-main">
-    <Routes>
-      <Route path="/" element={<MyBar />} />
-      <Route path="/cocktails" element={<MyCocktails />} />
-      <Route path="/build" element={<BuildBar />} />
-      <Route path="/drink" element={<MakeDrink />} />
-      <Route path="/random" element={<RandomDrink />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
-  </div>
-  )
+    <div id="page-main">
+      <Routes>
+        <Route path="/" element={<MyBar />} />
+        <Route path="/cocktails" element={<MyCocktails />} />
+        <Route path="/build" element={<BuildBar />} />
+        <Route path="/drink" element={<MakeDrink />} />
+        <Route path="/random" element={<RandomDrink />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default PageMain;
