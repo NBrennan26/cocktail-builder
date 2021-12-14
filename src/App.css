@@ -5,6 +5,7 @@ body {
   background: #fff;
   max-width: 100%;
   min-height: 100%;
+  background: #c6c3b3;
 }
 #header {
   position: absolute;
@@ -14,7 +15,7 @@ body {
   grid-template-columns: 1fr 5fr 1fr;
   height: 10vh;
   font-size: calc(7px + 2vmin);
-  background: #489fb5;
+  background: #312921;
   color: #ede7e3;
 }
 #title {
@@ -29,7 +30,6 @@ body {
   justify-content: center;
 }
 .nav-links {
-  /* width: 60vw; */
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -46,10 +46,10 @@ body {
   text-decoration: none;
 }
 .nav-link:hover {
-  color: #ffa62b;
+  color: #c6c3b3;
 }
 .nav-link.active {
-  color: #ffa62b;
+  color: #ccaf9b;
 }
 #footer {
   display: flex;
@@ -62,16 +62,17 @@ body {
   bottom: 0;
   right: 0;
   font-size: calc(1px + 2vmin);
-  background: #16697a;
+  background: #312921;
   color: #ede7e3;
 }
 #footer:hover {
   color: white;
 }
-
 .main-comp {
   margin-top: 10vh;
   margin-bottom: 4vh;
   display: grid;
   justify-content: center;
 }
+
+/* Palette: #312921 #873c1e #a06b39 #ccaf9b #c6c3b3 */

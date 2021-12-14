@@ -12,7 +12,7 @@ import About from "./About";
 
 function PageMain() {
   return (
-  <div>
+  <div id="page-main">
     <Routes>
       <Route path="/" element={<MyBar />} />
       <Route path="/cocktails" element={<MyCocktails />} />
