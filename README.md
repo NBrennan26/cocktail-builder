@@ -7,7 +7,8 @@ The original project calls for a clone of a website. I thought this would be a g
 Cocktail API: https://www.thecocktaildb.com/
 
 Palette: #312921 #873c1e #a06b39 #ccaf9b #c6c3b3
+  https://colorpalettes.net/color-palette-4319/
 
 Firebase Hosting Links:
-cocktailbuilder-112fc.web.app
-cocktailbuilder-112fc.firebaseapp.com
+  https://cocktailbuilder-112fc.web.app/
+  https://cocktailbuilder-112fc.firebaseapp.com/
