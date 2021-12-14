@@ -15,24 +15,35 @@ function PageMain() {
   const [testCocktail, setTestCocktail] = useState({});
   const [testloading, setTestLoading] = useState(false);
 
+  // useEffect(() => {
+  //   const loadCocktail = async () => {
+  //     setTestLoading(true);
+  //     const fetchData = await axios.get(
+  //       "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+  //     );
+  //     setTestCocktail(fetchData.data);
+  //     setTestLoading(false);
+  //   };
+  //   loadCocktail();
+  // }, []);
+
   useEffect(() => {
-    const loadCocktail = async () => {
-      setTestLoading(true);
-      const fetchData = await axios.get(
+    const fetchData = async () => {
+      let res = await fetch(
         "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
       );
-      setTestCocktail(fetchData.data);
-      setTestLoading(false);
+      let response = await res.json();
+      setTestCocktail(response.data);
     };
-    loadCocktail();
+    fetchData();
   }, []);
 
   useEffect(() => {
-    if (!testloading & testCocktail !== {}) {
-      console.log(testCocktail)
-      console.log(testCocktail.drinks[0].strDrink)
+    if (testCocktail !== {} && testCocktail !== {  }) {
+      console.log(testCocktail);
+      console.log(testCocktail.drinks[0].strDrink);
     }
-  }, [testloading, testCocktail])
+  }, [testloading, testCocktail]);
 
   return (
     <div id="page-main">
