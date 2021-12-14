@@ -2,7 +2,7 @@ import React from "react";
 
 const MyCocktails = () => {
   return (
-    <div>
+    <div className="main-comp">
       <div>
         My Cocktails Page
       </div>

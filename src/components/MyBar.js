@@ -2,7 +2,7 @@ import React from "react";
 
 const MyBar = () => {
   return (
-    <div>
+    <div className="main-comp">
       <div>
         My Bar Page
       </div>

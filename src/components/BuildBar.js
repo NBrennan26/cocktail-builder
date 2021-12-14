@@ -2,7 +2,7 @@ import React from "react";
 
 const BuildBar = () => {
   return (
-    <div>
+    <div className="main-comp">
       <div>
         Build My Bar Page
       </div>

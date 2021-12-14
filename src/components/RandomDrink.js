@@ -2,7 +2,7 @@ import React from "react";
 
 const RandomDrink = () => {
   return (
-    <div>
+    <div className="main-comp">
       <div>
         Pick a Random Cocktail Page
       </div>
