@@ -1,24 +1,23 @@
 import React from "react";
-import uniqid from "uniqid";
-import IngredientList from "../utilities/IngredientList";
+// import uniqid from "uniqid";
 
 const BuildBar = (props) => {
-  const spiritList = IngredientList.filter((item) => {
+  const spiritList = props.curBarInv.filter((item) => {
     return item.type === "spirit";
   });
-  const liqueurList = IngredientList.filter((item) => {
+  const liqueurList = props.curBarInv.filter((item) => {
     return item.type === "liqueur";
   });
-  const bittersList = IngredientList.filter((item) => {
+  const bittersList = props.curBarInv.filter((item) => {
     return item.type === "bitters";
   });
-  const syrupList = IngredientList.filter((item) => {
+  const syrupList = props.curBarInv.filter((item) => {
     return item.type === "syrup";
   });
-  const juiceList = IngredientList.filter((item) => {
+  const juiceList = props.curBarInv.filter((item) => {
     return item.type === "juice";
   });
-  const otherList = IngredientList.filter((item) => {
+  const otherList = props.curBarInv.filter((item) => {
     return item.type === "other";
   });
 
@@ -31,7 +30,7 @@ const BuildBar = (props) => {
             {spiritList.map((item) => {
               return (
                 <label>
-                  <input type="checkbox" name={item.ingredient} />
+                  <input type="checkbox" name={item.ingredient} checked={item.inStock} />
                   {item.ingredient}
                 </label>
               );
