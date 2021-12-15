@@ -11,13 +11,13 @@ function NavBar() {
           </NavLink>
         </li>
         <li>
-          <NavLink className="nav-link" to="/cocktails">
-            My Cocktails
+          <NavLink className="nav-link" to="/build">
+            Bar Builder
           </NavLink>
         </li>
         <li>
-          <NavLink className="nav-link" to="/build">
-            Bar Builder
+          <NavLink className="nav-link" to="/cocktails">
+            My Cocktails
           </NavLink>
         </li>
         <li>

@@ -1,22 +1,26 @@
 import React from "react";
 
 const MyBar = (props) => {
-  const spiritList = props.userBarInventory.filter((item) => {
+
+  const inStockList = props.curBarInv.filter(item => {
+    return item.inStock
+  })
+  const spiritList = inStockList.filter((item) => {
     return item.type === "spirit";
   });
-  const liqueurList = props.userBarInventory.filter((item) => {
+  const liqueurList = inStockList.filter((item) => {
     return item.type === "liqueur";
   });
-  const bittersList = props.userBarInventory.filter((item) => {
+  const bittersList = inStockList.filter((item) => {
     return item.type === "bitters";
   });
-  const syrupList = props.userBarInventory.filter((item) => {
+  const syrupList = inStockList.filter((item) => {
     return item.type === "syrup";
   });
-  const juiceList = props.userBarInventory.filter((item) => {
+  const juiceList = inStockList.filter((item) => {
     return item.type === "juice";
   });
-  const otherList = props.userBarInventory.filter((item) => {
+  const otherList = inStockList.filter((item) => {
     return item.type === "other";
   });
 
@@ -32,6 +36,15 @@ const MyBar = (props) => {
   return (
     <div className="main-comp">
       <div>My Bar Page</div>
+      <ul>
+        {spiritList.map((item) => {
+              return (
+                <li>
+                  {item.ingredient}
+                </li>
+              );
+            })}
+      </ul>
     </div>
   );
 };

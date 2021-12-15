@@ -17,41 +17,35 @@ function PageMain() {
   //   "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
   // );
 
-  const [curBarInv, setCurBarInv] = useState(IngredientList)
+  const [curBarInv, setCurBarInv] = useState(IngredientList);
 
   const handleChangeInv = (e) => {
     const { name, checked } = e.target;
     const mappedInv = curBarInv.map((item) => {
       if (item.ingredient === name) {
-        console.log(item)
-        item.inStock = checked
+        console.log(item);
+        item.inStock = checked;
       }
-      return item
-    })
-    setCurBarInv(mappedInv)
+      return item;
+    });
+    setCurBarInv(mappedInv);
   };
 
   useEffect(() => {
-    console.log(curBarInv)
-  }, [curBarInv])
+    console.log(curBarInv);
+  }, [curBarInv]);
 
   return (
     <div id="page-main">
       <Routes>
-        <Route
-          path="/"
-          element={<MyBar curBarInv={curBarInv} />}
-        />
-        <Route path="/cocktails" element={<MyCocktails />} />
+        <Route path="/" element={<MyBar curBarInv={curBarInv} />} />
         <Route
           path="/build"
           element={
-            <BuildBar
-              handleChangeInv={handleChangeInv}
-              curBarInv={curBarInv}
-            />
+            <BuildBar handleChangeInv={handleChangeInv} curBarInv={curBarInv} />
           }
         />
+        <Route path="/cocktails" element={<MyCocktails />} />
         <Route path="/drink" element={<MakeDrink />} />
         <Route path="/random" element={<RandomDrink />} />
         <Route path="/about" element={<About />} />
