@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 // import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 // import { db } from "./Firestore";
 // import uniqid from "uniqid";
-import useFetch from "../utilities/useFetch";
+// import useFetch from "../utilities/useFetch";
 import MyBar from "./MyBar";
 import MyCocktails from "./MyCocktails";
 import BuildBar from "./BuildBar";
@@ -29,8 +29,8 @@ function PageMain() {
         });
       }
     } else if (!checked) {
-      const shortenedInv = userBarInventory.filter((item) => item !== name)
-      setUserBarInventory(shortenedInv)
+      const shortenedInv = userBarInventory.filter((item) => item !== name);
+      setUserBarInventory(shortenedInv);
     }
   };
 
@@ -64,10 +64,3 @@ function PageMain() {
 }
 
 export default PageMain;
-
-/*
-setPopUpStyle({
-  ...popUpStyle,
-  display: "none",
-});
-*/

@@ -74,5 +74,14 @@ body {
   display: grid;
   justify-content: center;
 }
-
-/* Palette: #312921 #873c1e #a06b39 #ccaf9b #c6c3b3 */
+.ing-grp {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}
+.ing-grp-title {
+  grid-column: span 4;
+  font-weight: bolder;
+  text-decoration: underline;
+}
