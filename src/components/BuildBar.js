@@ -1,4 +1,5 @@
 import React from "react";
+import uniqid from "uniqid"
 import IngredientList from "../utilities/IngredientList";
 
 const BuildBar = (props) => {
@@ -30,7 +31,7 @@ const BuildBar = (props) => {
           <br />
           {spiritList.map((item) => {
             return (
-              <label>
+              <label key={uniqid()}>
                 <input type="checkbox" name={item.ingredient} />
                 {item.ingredient}
               </label>
@@ -41,7 +42,7 @@ const BuildBar = (props) => {
           <br />
           {liqueurList.map((item) => {
             return (
-              <label>
+              <label key={uniqid()}>
                 <input type="checkbox" name={item.ingredient} />
                 {item.ingredient}
               </label>
@@ -52,7 +53,7 @@ const BuildBar = (props) => {
           <br />
           {bittersList.map((item) => {
             return (
-              <label>
+              <label key={uniqid()}>
                 <input type="checkbox" name={item.ingredient} />
                 {item.ingredient}
               </label>
@@ -63,7 +64,7 @@ const BuildBar = (props) => {
           <br />
           {syrupList.map((item) => {
             return (
-              <label>
+              <label key={uniqid()}>
                 <input type="checkbox" name={item.ingredient} />
                 {item.ingredient}
               </label>
@@ -74,7 +75,7 @@ const BuildBar = (props) => {
           <br />
           {juiceList.map((item) => {
             return (
-              <label>
+              <label key={uniqid()}>
                 <input type="checkbox" name={item.ingredient} />
                 {item.ingredient}
               </label>
@@ -85,7 +86,7 @@ const BuildBar = (props) => {
           <br />
           {otherList.map((item) => {
             return (
-              <label>
+              <label key={uniqid()}>
                 <input type="checkbox" name={item.ingredient} />
                 {item.ingredient}
               </label>

@@ -20,26 +20,18 @@ function PageMain() {
 
   const handleChangeInv = (e) => {
     const { name, checked } = e.target;
-    console.log(name);
-    console.log(checked);
     if (checked) {
       if (userBarInventory.length === 0) {
         setUserBarInventory([name]);
-        console.log(userBarInventory);
       } else {
         setUserBarInventory((prevInv) => {
           return [...prevInv, name];
         });
-        console.log(userBarInventory);
       }
     } else if (!checked) {
-      console.log("no");
-      console.log(name);
       const shortenedInv = userBarInventory.filter((item) => item !== name)
-      console.log(shortenedInv)
       setUserBarInventory(shortenedInv)
     }
-    console.log(userBarInventory);
   };
 
   useEffect(() => {
