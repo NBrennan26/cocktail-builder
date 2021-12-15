@@ -19,7 +19,9 @@ function PageMain() {
   const [userBarInventory, setUserBarInventory] = useState([]);
 
   const handleChangeInv = (e) => {
+    console.log("run")
     const { name, checked } = e.target;
+    console.log(e.target)
     if (checked) {
       if (userBarInventory.length === 0) {
         setUserBarInventory([name]);
@@ -41,7 +43,7 @@ function PageMain() {
   return (
     <div id="page-main">
       <Routes>
-        <Route path="/" element={<MyBar />} />
+        <Route path="/" element={<MyBar userBarInventory={userBarInventory}/>} />
         <Route path="/cocktails" element={<MyCocktails />} />
         <Route
           path="/build"
