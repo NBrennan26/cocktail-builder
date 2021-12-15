@@ -1,10 +1,9 @@
 import React from "react";
 
 const MyBar = (props) => {
-
-  const inStockList = props.curBarInv.filter(item => {
-    return item.inStock
-  })
+  const inStockList = props.curBarInv.filter((item) => {
+    return item.inStock;
+  });
   const spiritList = inStockList.filter((item) => {
     return item.type === "spirit";
   });
@@ -24,26 +23,43 @@ const MyBar = (props) => {
     return item.type === "other";
   });
 
-  console.log(
-    spiritList,
-    liqueurList,
-    bittersList,
-    syrupList,
-    juiceList,
-    otherList
-  );
-
   return (
     <div className="main-comp">
-      <div>My Bar Page</div>
-      <ul>
+      <ul className="my-bar-list">
+        <span className="ing-grp-title">Spirits</span>
         {spiritList.map((item) => {
-              return (
-                <li>
-                  {item.ingredient}
-                </li>
-              );
-            })}
+          return <li className="in-stock-ing">{item.ingredient}</li>;
+        })}
+      </ul>
+      <ul className="my-bar-list">
+        <span className="ing-grp-title">Liqueurs</span>
+        {liqueurList.map((item) => {
+          return <li className="in-stock-ing">{item.ingredient}</li>;
+        })}
+      </ul>
+      <ul className="my-bar-list">
+        <span className="ing-grp-title">Bitters</span>
+        {bittersList.map((item) => {
+          return <li className="in-stock-ing">{item.ingredient}</li>;
+        })}
+      </ul>
+      <ul className="my-bar-list">
+        <span className="ing-grp-title">Syrups</span>
+        {syrupList.map((item) => {
+          return <li className="in-stock-ing">{item.ingredient}</li>;
+        })}
+      </ul>
+      <ul className="my-bar-list">
+        <span className="ing-grp-title">Juices</span>
+        {juiceList.map((item) => {
+          return <li className="in-stock-ing">{item.ingredient}</li>;
+        })}
+      </ul>
+      <ul className="my-bar-list">
+        <span className="ing-grp-title">Other</span>
+        {otherList.map((item) => {
+          return <li className="in-stock-ing">{item.ingredient}</li>;
+        })}
       </ul>
     </div>
   );

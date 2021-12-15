@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 body {
-  background: #fff;
   max-width: 100%;
   min-height: 100%;
   background: #c6c3b3;
@@ -85,4 +84,14 @@ body {
   grid-column: span 4;
   font-weight: bolder;
   text-decoration: underline;
+}
+.my-bar-list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.in-stock-ing {
+  text-align: center;
+  margin-top: 1vh;
 }
