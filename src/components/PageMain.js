@@ -12,9 +12,9 @@ import RandomDrink from "./RandomDrink";
 import About from "./About";
 
 function PageMain() {
-  const { data, error, isLoading } = useFetch(
-    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
-  );
+  // const { data, error, isLoading } = useFetch(
+  //   "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+  // );
 
   return (
     <div id="page-main">
@@ -26,14 +26,14 @@ function PageMain() {
         <Route path="/random" element={<RandomDrink />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <div>
+      {/* <div>
         {!data && isLoading && "Loading..."}
         {!data && error && "Error..."}
         {data &&
           data.drinks.map((drink) => (
             <div key={drink.idDrink}>{drink.strDrink}</div>
           ))}
-      </div>
+      </div> */}
     </div>
   );
 }
