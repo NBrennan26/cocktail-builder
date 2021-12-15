@@ -1,7 +1,7 @@
 import React from "react";
 import IngredientList from "../utilities/IngredientList";
 
-const BuildBar = () => {
+const BuildBar = (props) => {
   const spiritList = IngredientList.filter((item) => {
     return item.type === "spirit";
   });
@@ -25,7 +25,7 @@ const BuildBar = () => {
     <div className="main-comp">
       <div>Build My Bar Page</div>
       <div>
-        <form>
+        <form onChange={(e) => props.handleChangeInv(e)}>
           Spirits:
           <br />
           {spiritList.map((item) => {
