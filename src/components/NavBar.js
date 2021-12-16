@@ -12,22 +12,22 @@ function NavBar() {
         </li>
         <li>
           <NavLink className="nav-link" to="/build">
-            Bar Builder
+            Bar <br />Builder
           </NavLink>
         </li>
         <li>
           <NavLink className="nav-link" to="/cocktails">
-            My Cocktails
+            My <br />Cocktails
           </NavLink>
         </li>
         <li>
           <NavLink className="nav-link" to="/drink">
-            Make a Cocktial
+            Make a <br />Cocktial
           </NavLink>
         </li>
         <li>
           <NavLink className="nav-link" to="/random">
-            Random Cocktail
+            Random <br /> Cocktail
           </NavLink>
         </li>
         <li>
