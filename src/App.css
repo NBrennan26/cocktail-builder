@@ -51,6 +51,20 @@ body {
 .nav-link.active {
   color: #ccaf9b;
 }
+#login-btn {
+  background: #312921;
+  color: #ede7e3;
+  border: none;
+  border-radius: 8%;
+  justify-content: center;
+  font-size: smaller;
+  padding: 1vh 2vw;
+  border: 1px solid #c6c3b3;
+}
+#login-btn:hover {
+  background: #873c1e;
+  color: #c6c3b3;
+}
 #footer {
   display: flex;
   flex-direction: column;
