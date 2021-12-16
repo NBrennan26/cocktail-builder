@@ -1,5 +1,5 @@
 import React from "react";
-// import uniqid from "uniqid";
+import uniqid from "uniqid";
 
 const BuildBar = (props) => {
   const spiritList = props.curBarInv.filter((item) => {
@@ -24,16 +24,17 @@ const BuildBar = (props) => {
   return (
     <div className="main-comp">
       <div>
-        <form onChange={(e) => props.handleChangeInv(e)}>
+        <form>
           <div className="ing-grp">
             <span className="ing-grp-title">Spirits</span>
             {spiritList.map((item) => {
               return (
-                <label>
+                <label key={uniqid()}>
                   <input
                     type="checkbox"
                     name={item.ingredient}
                     checked={item.inStock}
+                    onChange={(e) => props.handleChangeInv(e)}
                   />
                   {item.ingredient}
                 </label>
@@ -44,11 +45,12 @@ const BuildBar = (props) => {
             <span className="ing-grp-title">Liqueurs</span>
             {liqueurList.map((item) => {
               return (
-                <label>
+                <label key={uniqid()}>
                   <input
                     type="checkbox"
                     name={item.ingredient}
                     checked={item.inStock}
+                    onChange={(e) => props.handleChangeInv(e)}
                   />
                   {item.ingredient}
                 </label>
@@ -59,11 +61,12 @@ const BuildBar = (props) => {
             <span className="ing-grp-title">Bitters</span>
             {bittersList.map((item) => {
               return (
-                <label>
+                <label key={uniqid()}>
                   <input
                     type="checkbox"
                     name={item.ingredient}
                     checked={item.inStock}
+                    onChange={(e) => props.handleChangeInv(e)}
                   />
                   {item.ingredient}
                 </label>
@@ -74,11 +77,12 @@ const BuildBar = (props) => {
             <span className="ing-grp-title">Syrups</span>
             {syrupList.map((item) => {
               return (
-                <label>
+                <label key={uniqid()}>
                   <input
                     type="checkbox"
                     name={item.ingredient}
                     checked={item.inStock}
+                    onChange={(e) => props.handleChangeInv(e)}
                   />
                   {item.ingredient}
                 </label>
@@ -89,11 +93,12 @@ const BuildBar = (props) => {
             <span className="ing-grp-title">Juices</span>
             {juiceList.map((item) => {
               return (
-                <label>
+                <label key={uniqid()}>
                   <input
                     type="checkbox"
                     name={item.ingredient}
                     checked={item.inStock}
+                    onChange={(e) => props.handleChangeInv(e)}
                   />
                   {item.ingredient}
                 </label>
@@ -104,11 +109,12 @@ const BuildBar = (props) => {
             <span className="ing-grp-title">Others</span>
             {otherList.map((item) => {
               return (
-                <label>
+                <label key={uniqid()}>
                   <input
                     type="checkbox"
                     name={item.ingredient}
                     checked={item.inStock}
+                    onChange={(e) => props.handleChangeInv(e)}
                   />
                   {item.ingredient}
                 </label>

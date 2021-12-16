@@ -1,4 +1,5 @@
 import React from "react";
+import uniqid from "uniqid";
 
 const MyBar = (props) => {
   const inStockList = props.curBarInv.filter((item) => {
@@ -28,37 +29,61 @@ const MyBar = (props) => {
       <ul className="my-bar-list">
         <span className="ing-grp-title">Spirits</span>
         {spiritList.map((item) => {
-          return <li className="in-stock-ing">{item.ingredient}</li>;
+          return (
+            <li className="in-stock-ing" key={uniqid()}>
+              {item.ingredient}
+            </li>
+          );
         })}
       </ul>
       <ul className="my-bar-list">
         <span className="ing-grp-title">Liqueurs</span>
         {liqueurList.map((item) => {
-          return <li className="in-stock-ing">{item.ingredient}</li>;
+          return (
+            <li className="in-stock-ing" key={uniqid()}>
+              {item.ingredient}
+            </li>
+          );
         })}
       </ul>
       <ul className="my-bar-list">
         <span className="ing-grp-title">Bitters</span>
         {bittersList.map((item) => {
-          return <li className="in-stock-ing">{item.ingredient}</li>;
+          return (
+            <li className="in-stock-ing" key={uniqid()}>
+              {item.ingredient}
+            </li>
+          );
         })}
       </ul>
       <ul className="my-bar-list">
         <span className="ing-grp-title">Syrups</span>
         {syrupList.map((item) => {
-          return <li className="in-stock-ing">{item.ingredient}</li>;
+          return (
+            <li className="in-stock-ing" key={uniqid()}>
+              {item.ingredient}
+            </li>
+          );
         })}
       </ul>
       <ul className="my-bar-list">
         <span className="ing-grp-title">Juices</span>
         {juiceList.map((item) => {
-          return <li className="in-stock-ing">{item.ingredient}</li>;
+          return (
+            <li className="in-stock-ing" key={uniqid()}>
+              {item.ingredient}
+            </li>
+          );
         })}
       </ul>
       <ul className="my-bar-list">
         <span className="ing-grp-title">Other</span>
         {otherList.map((item) => {
-          return <li className="in-stock-ing">{item.ingredient}</li>;
+          return (
+            <li className="in-stock-ing" key={uniqid()}>
+              {item.ingredient}
+            </li>
+          );
         })}
       </ul>
     </div>
