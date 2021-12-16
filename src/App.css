@@ -85,6 +85,9 @@ body {
   font-weight: bolder;
   text-decoration: underline;
 }
+#my-bar-main {
+  text-align: center;
+}
 .my-bar-list {
   list-style: none;
   padding-left: 0;

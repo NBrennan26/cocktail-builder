@@ -24,7 +24,7 @@ const MyBar = (props) => {
   });
 
   return (
-    <div className="main-comp">
+    <div className="main-comp" id="my-bar-main">
       <ul className="my-bar-list">
         <span className="ing-grp-title">Spirits</span>
         {spiritList.map((item) => {

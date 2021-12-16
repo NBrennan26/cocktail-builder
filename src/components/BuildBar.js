@@ -30,7 +30,11 @@ const BuildBar = (props) => {
             {spiritList.map((item) => {
               return (
                 <label>
-                  <input type="checkbox" name={item.ingredient} checked={item.inStock} />
+                  <input
+                    type="checkbox"
+                    name={item.ingredient}
+                    checked={item.inStock}
+                  />
                   {item.ingredient}
                 </label>
               );
@@ -41,7 +45,11 @@ const BuildBar = (props) => {
             {liqueurList.map((item) => {
               return (
                 <label>
-                  <input type="checkbox" name={item.ingredient} />
+                  <input
+                    type="checkbox"
+                    name={item.ingredient}
+                    checked={item.inStock}
+                  />
                   {item.ingredient}
                 </label>
               );
@@ -52,7 +60,11 @@ const BuildBar = (props) => {
             {bittersList.map((item) => {
               return (
                 <label>
-                  <input type="checkbox" name={item.ingredient} />
+                  <input
+                    type="checkbox"
+                    name={item.ingredient}
+                    checked={item.inStock}
+                  />
                   {item.ingredient}
                 </label>
               );
@@ -63,7 +75,11 @@ const BuildBar = (props) => {
             {syrupList.map((item) => {
               return (
                 <label>
-                  <input type="checkbox" name={item.ingredient} />
+                  <input
+                    type="checkbox"
+                    name={item.ingredient}
+                    checked={item.inStock}
+                  />
                   {item.ingredient}
                 </label>
               );
@@ -74,7 +90,11 @@ const BuildBar = (props) => {
             {juiceList.map((item) => {
               return (
                 <label>
-                  <input type="checkbox" name={item.ingredient} />
+                  <input
+                    type="checkbox"
+                    name={item.ingredient}
+                    checked={item.inStock}
+                  />
                   {item.ingredient}
                 </label>
               );
@@ -85,7 +105,11 @@ const BuildBar = (props) => {
             {otherList.map((item) => {
               return (
                 <label>
-                  <input type="checkbox" name={item.ingredient} />
+                  <input
+                    type="checkbox"
+                    name={item.ingredient}
+                    checked={item.inStock}
+                  />
                   {item.ingredient}
                 </label>
               );
