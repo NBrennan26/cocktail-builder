@@ -22,7 +22,7 @@ function NavBar() {
         </li>
         <li>
           <NavLink className="nav-link" to="/drink">
-            Make a <br />Cocktial
+            Find a <br />Cocktial
           </NavLink>
         </li>
         <li>

@@ -13,7 +13,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   height: 10vh;
-  width: 100vw;
   font-size: calc(7px + 2vmin);
   background: #312921;
   color: #ede7e3;
@@ -23,9 +22,6 @@ body {
   text-align: center;
   font-size: 1.2em;
   margin-left: 3vw;
-}
-#login {
-  margin: auto;
 }
 #navbar {
   display: flex;
@@ -55,13 +51,16 @@ body {
 .nav-link.active {
   color: #ccaf9b;
 }
+#login {
+  margin: auto;
+}
 #login-btn {
   background: #312921;
   color: #ede7e3;
   border: none;
   border-radius: 8%;
   justify-content: center;
-  font-size: smaller;
+  font-size: .7em;
   padding: 1vh 2vw;
   border: 1px solid #c6c3b3;
 }
