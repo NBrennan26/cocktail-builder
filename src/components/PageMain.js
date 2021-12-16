@@ -11,6 +11,7 @@ import BuildBar from "./BuildBar";
 import MakeDrink from "./MakeDrink";
 import RandomDrink from "./RandomDrink";
 import About from "./About";
+import UseFetch from "../utilities/UseFetch";
 
 function PageMain() {
   // const { data, error, isLoading } = useFetch(
@@ -18,6 +19,8 @@ function PageMain() {
   // );
 
   const [curBarInv, setCurBarInv] = useState(IngredientList);
+  const [allCocktailList, setAllCocktailList] = useState([]);
+  const [ingredientName, setIngredientName] = useState(null);
 
   const handleChangeInv = (e) => {
     const { name, checked } = e.target;
@@ -29,6 +32,13 @@ function PageMain() {
       return item;
     });
     setCurBarInv(mappedInv);
+    // addcocktailtolist(name)
+    getIngName(name);
+  };
+
+  const getIngName = (name) => {
+    let noSpace = name.replace(/\s/g, "_");
+    setIngredientName(noSpace);
   };
 
   useEffect(() => {
