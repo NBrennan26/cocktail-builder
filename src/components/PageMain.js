@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 // import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 // import { db } from "./Firestore";
 // import uniqid from "uniqid";
-// import useFetch from "../utilities/useFetch";
+import UseFetch from "../utilities/UseFetch";
+import getCocktails from "../utilities/UseFetch";
 import IngredientList from "../utilities/IngredientList";
 import MyBar from "./MyBar";
 import MyCocktails from "./MyCocktails";
@@ -11,7 +12,6 @@ import BuildBar from "./BuildBar";
 import MakeDrink from "./MakeDrink";
 import RandomDrink from "./RandomDrink";
 import About from "./About";
-import UseFetch from "../utilities/UseFetch";
 
 function PageMain() {
   // const { data, error, isLoading } = useFetch(
@@ -32,18 +32,25 @@ function PageMain() {
       return item;
     });
     setCurBarInv(mappedInv);
-    // addcocktailtolist(name)
     getIngName(name);
   };
 
   const getIngName = (name) => {
-    let noSpace = name.replace(/\s/g, "_");
-    setIngredientName(noSpace);
+    setIngredientName(name.replace(/\s/g, "_"));
   };
 
   useEffect(() => {
     console.log(curBarInv);
   }, [curBarInv]);
+
+  const { data } = getCocktails(
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientName)
+  // .then((data) => console.log(data.drinks));
+  console.log(data)
+
+  // const { data, error, isLoading } = UseFetch(
+  //   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientName
+  // );
 
   return (
     <div id="page-main">
