@@ -36,7 +36,7 @@ function PageMain() {
     setIngredientName(name.replace(/\s/g, "_"));
   };
 
-  // Fetch All cocktails that include selected ingredient, and add those cocktails to allCocktailList
+  // Fetch All cocktails that include selected ingredient, and add those cocktails to allCocktailList if not already present
   useEffect(() => {
     if (ingredientName) {
       getCocktails(
@@ -49,16 +49,25 @@ function PageMain() {
               "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
                 cocktail.idDrink
             ).then((data) => {
-              // console.log(data);
-              // console.log(data.drinks[0]);
-              setAllCocktailList((cocktails) => [...cocktails, data.drinks[0]]);
+              if (
+                allCocktailList.some(
+                  (cocktail) => cocktail.idDrink === data.drinks[0].idDrink
+                )
+              ) {
+                console.log("Already In List");
+              } else {
+                console.log("Adding...");
+                setAllCocktailList((cocktails) => [
+                  ...cocktails,
+                  data.drinks[0],
+                ]);
+              }
             });
           });
-        } else {
-          console.log("No matches")
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curBarInv]);
 
   return (
@@ -71,7 +80,10 @@ function PageMain() {
             <BuildBar handleChangeInv={handleChangeInv} curBarInv={curBarInv} />
           }
         />
-        <Route path="/cocktails" element={<MyCocktails />} />
+        <Route
+          path="/cocktails"
+          element={<MyCocktails allCocktailList={allCocktailList} />}
+        />
         <Route path="/drink" element={<MakeDrink />} />
         <Route path="/random" element={<RandomDrink />} />
         <Route path="/about" element={<About />} />
