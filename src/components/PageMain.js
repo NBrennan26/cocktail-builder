@@ -45,55 +45,52 @@ function PageMain() {
     setCurIng(filterIng);
   };
 
-  // Fetch All cocktails that include selected ingredient, and add those cocktails to allCocktailList if not already present
+  // Fetch Cocktails from API based on selected Ingredient, and Add Cocktails to Cocktail list
   useEffect(() => {
+    // Fetch cocktail based on ingredient
     if (ingredientName) {
       getCocktails(
         "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" +
           ingredientName
       ).then((data) => {
+        // Fetch cocktail using ID (for full data)
         if (data) {
           data.drinks.forEach((cocktail) => {
             getCocktails(
               "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
                 cocktail.idDrink
             ).then((data) => {
+              // Check if cocktail is already on list
               if (
                 allCocktailList.some(
                   (cocktail) => cocktail.id === data.drinks[0].idDrink
                 )
               ) {
-                // console.log("Already In List");
               } else {
-                // console.log("Adding...");
-                // console.log(data.drinks[0]);
+                let drink = data.drinks[0];
+                // Create ingredient list for cocktail
                 let getIngList = (data) => {
-                  // console.log(data)
                   let ingList = [];
                   for (let i = 1; i <= 8; i++) {
                     if (data["strIngredient" + i]) {
-                      // console.log(data["strIngredient" + i])
                       let ing = data["strIngredient" + i];
                       let dir = data["strMeasure" + i];
                       ingList.push({ ingredient: ing, measurement: dir });
                     }
                   }
-                  // console.log(ingList);
                   return ingList;
                 };
+                // Create cocktail object
                 let newCocktail = {
-                  id: data.drinks[0].idDrink,
-                  name: data.drinks[0].strDrink,
-                  glass: data.drinks[0].strGlass,
-                  ingredients: getIngList(data.drinks[0]),
-                  instructions: data.drinks[0].strInstructions,
-                  image: data.drinks[0].strDrinkThumb,
+                  id: drink.idDrink,
+                  name: drink.strDrink,
+                  glass: drink.strGlass,
+                  ingredients: getIngList(drink),
+                  instructions: drink.strInstructions,
+                  image: drink.strDrinkThumb,
                 };
-                console.log(newCocktail)
-                setAllCocktailList((cocktails) => [
-                  ...cocktails,
-                  newCocktail,
-                ]);
+                // Add cocktail object to cocktail list
+                setAllCocktailList((cocktails) => [...cocktails, newCocktail]);
               }
             });
           });
