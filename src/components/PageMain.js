@@ -101,6 +101,36 @@ function PageMain() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curBarInv]);
 
+  const filterCocktailList = async () => {
+    let newList = [];
+    for (let i = 0; i < allCocktailList.length; i++) {
+      for (let j = 0; j < curIng.length; j++) {
+        let ingCount = 0;
+        allCocktailList[i].ingredients.forEach((ing) => {
+          console.log(ing.ingredient.toLowerCase())
+          console.log(curIng[j])
+          if (ing === curIng[j]) {
+            ingCount += 1
+            console.log(ingCount)
+          }
+        });
+      }
+      newList.push(allCocktailList[i]);
+    }
+    console.log(newList);
+    return newList;
+  };
+
+  ///// NEED TO FIGURE OUT ABOVE LOOP ^^^ /////
+
+  useEffect(() => {
+    if (allCocktailList.length > 0) {
+      filterCocktailList().then((list) => {
+        console.log("useEffected");
+      });
+    }
+  }, [allCocktailList]);
+
   useEffect(() => {
     // console.log(curBarInv);
     // console.log(curIng);
