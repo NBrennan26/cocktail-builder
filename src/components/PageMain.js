@@ -3,8 +3,7 @@ import { Routes, Route } from "react-router-dom";
 // import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 // import { db } from "./Firestore";
 // import uniqid from "uniqid";
-import UseFetch from "../utilities/UseFetch";
-import getCocktails from "../utilities/UseFetch";
+import getCocktails from "../utilities/GetCocktails";
 import IngredientList from "../utilities/IngredientList";
 import MyBar from "./MyBar";
 import MyCocktails from "./MyCocktails";
@@ -43,14 +42,16 @@ function PageMain() {
     console.log(curBarInv);
   }, [curBarInv]);
 
-  const { data } = getCocktails(
-    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientName)
-  // .then((data) => console.log(data.drinks));
-  console.log(data)
-
-  // const { data, error, isLoading } = UseFetch(
-  //   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredientName
-  // );
+  useEffect(() => {
+    console.log("called it");
+    if (ingredientName) {
+      console.log("ran it");
+      getCocktails(
+        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" +
+          ingredientName
+      ).then((data) => console.log(data));
+    }
+  }, [curBarInv]);
 
   return (
     <div id="page-main">
