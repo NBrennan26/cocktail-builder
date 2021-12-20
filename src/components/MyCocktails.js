@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import uniqid from "uniqid";
 
+// allCocktailList, curIng
+
 const MyCocktails = (props) => {
+
   return (
     <div className="main-comp">
       <div>
-        My Cocktails Page
+      {props.curIng.map((item) => {
+          return <div key={uniqid()}>
+            <span>{item.ingredient}</span>
+          </div>;
+        })}
+        <br /> <br />
         {props.allCocktailList.map((item) => {
           return <div key={uniqid()}>
-            <span>{item.strDrink}</span>
+            <span>{item.name}</span>
           </div>;
         })}
       </div>

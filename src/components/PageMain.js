@@ -14,6 +14,7 @@ import About from "./About";
 
 function PageMain() {
   const [curBarInv, setCurBarInv] = useState(IngredientList);
+  const [curIng, setCurIng] = useState([]);
   const [allCocktailList, setAllCocktailList] = useState([]);
   const [ingredientName, setIngredientName] = useState(null);
 
@@ -22,7 +23,7 @@ function PageMain() {
     const { name, checked } = e.target;
     const mappedInv = curBarInv.map((item) => {
       if (item.ingredient === name) {
-        console.log(item);
+        // console.log(item);
         item.inStock = checked;
       }
       return item;
@@ -34,6 +35,14 @@ function PageMain() {
   // Replace spaces in names with underscores
   const getIngName = (name) => {
     setIngredientName(name.replace(/\s/g, "_"));
+  };
+
+  // Update curIng to only items that are checked
+  const updateCurIng = () => {
+    const filterIng = curBarInv.filter((item) => {
+      return item.inStock;
+    });
+    setCurIng(filterIng);
   };
 
   // Fetch All cocktails that include selected ingredient, and add those cocktails to allCocktailList if not already present
@@ -51,15 +60,39 @@ function PageMain() {
             ).then((data) => {
               if (
                 allCocktailList.some(
-                  (cocktail) => cocktail.idDrink === data.drinks[0].idDrink
+                  (cocktail) => cocktail.id === data.drinks[0].idDrink
                 )
               ) {
-                console.log("Already In List");
+                // console.log("Already In List");
               } else {
-                console.log("Adding...");
+                // console.log("Adding...");
+                // console.log(data.drinks[0]);
+                let getIngList = (data) => {
+                  // console.log(data)
+                  let ingList = [];
+                  for (let i = 1; i <= 8; i++) {
+                    if (data["strIngredient" + i]) {
+                      // console.log(data["strIngredient" + i])
+                      let ing = data["strIngredient" + i];
+                      let dir = data["strMeasure" + i];
+                      ingList.push({ ingredient: ing, measurement: dir });
+                    }
+                  }
+                  // console.log(ingList);
+                  return ingList;
+                };
+                let newCocktail = {
+                  id: data.drinks[0].idDrink,
+                  name: data.drinks[0].strDrink,
+                  glass: data.drinks[0].strGlass,
+                  ingredients: getIngList(data.drinks[0]),
+                  instructions: data.drinks[0].strInstructions,
+                  image: data.drinks[0].strDrinkThumb,
+                };
+                console.log(newCocktail)
                 setAllCocktailList((cocktails) => [
                   ...cocktails,
-                  data.drinks[0],
+                  newCocktail,
                 ]);
               }
             });
@@ -67,7 +100,13 @@ function PageMain() {
         }
       });
     }
+    updateCurIng();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [curBarInv]);
+
+  useEffect(() => {
+    // console.log(curBarInv);
+    // console.log(curIng);
   }, [curBarInv]);
 
   return (
@@ -82,7 +121,9 @@ function PageMain() {
         />
         <Route
           path="/cocktails"
-          element={<MyCocktails allCocktailList={allCocktailList} />}
+          element={
+            <MyCocktails allCocktailList={allCocktailList} curIng={curIng} />
+          }
         />
         <Route path="/drink" element={<MakeDrink />} />
         <Route path="/random" element={<RandomDrink />} />
