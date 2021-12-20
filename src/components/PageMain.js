@@ -54,6 +54,8 @@ function PageMain() {
               setAllCocktailList((cocktails) => [...cocktails, data.drinks[0]]);
             });
           });
+        } else {
+          console.log("No matches")
         }
       });
     }
