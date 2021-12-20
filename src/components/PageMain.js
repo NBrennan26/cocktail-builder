@@ -43,13 +43,27 @@ function PageMain() {
   }, [curBarInv]);
 
   useEffect(() => {
-    console.log("called it");
     if (ingredientName) {
-      console.log("ran it");
       getCocktails(
         "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" +
           ingredientName
-      ).then((data) => console.log(data));
+      ).then((data) => {
+        if (data) {
+          // console.log(data);
+          // console.log(data.drinks);
+          data.drinks.forEach((cocktail) => {
+            getCocktails(
+              "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" +
+                cocktail.idDrink
+            ).then((data) => {
+              console.log(data);
+              console.log(data.drinks[0]);
+              setAllCocktailList((cocktails) => [...cocktails, data.drinks[0]]);
+            });
+          });
+        }
+      });
+      console.log(allCocktailList);
     }
   }, [curBarInv]);
 
