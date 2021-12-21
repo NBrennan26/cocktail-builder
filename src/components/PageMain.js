@@ -157,10 +157,13 @@ function PageMain() {
         />
         <Route
           path="/cocktails"
-          element={<MyCocktails curIng={curIng} posCocktails={posCocktails} />}
+          element={<MyCocktails posCocktails={posCocktails} />}
         />
         <Route path="/drink" element={<MakeDrink />} />
-        <Route path="/random" element={<RandomDrink />} />
+        <Route
+          path="/random"
+          element={<RandomDrink posCocktails={posCocktails} />}
+        />
         <Route path="/about" element={<About />} />
       </Routes>
     </div>
