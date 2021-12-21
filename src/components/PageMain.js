@@ -113,6 +113,7 @@ function PageMain() {
     return key.every((ing) => testArr.includes(ing.ingredient.toLowerCase()));
   };
 
+  // Loop through allCocktailList and add cocktails that all ingredients are present in curIng to posCocktail (called by useEffect when curIng changes)
   const filterCocktailList = async () => {
     let newList = [];
     let allLength = allCocktailList.length;
@@ -126,7 +127,6 @@ function PageMain() {
         }
       }
     }
-
     return newList;
   };
 
@@ -137,6 +137,7 @@ function PageMain() {
         setPosCocktails(list);
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curIng]);
 
   useEffect(() => {
@@ -158,7 +159,6 @@ function PageMain() {
           path="/cocktails"
           element={
             <MyCocktails
-              allCocktailList={allCocktailList}
               curIng={curIng}
               posCocktails={posCocktails}
             />

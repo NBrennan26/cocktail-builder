@@ -115,3 +115,14 @@ body {
   text-align: center;
   margin-top: 1vh;
 }
+.card-display {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.cocktail-card {
+  border: 2px solid black;
+}
+.card-img {
+  height: 150px;
+  width: 150px;
+}
