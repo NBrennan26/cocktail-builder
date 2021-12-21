@@ -1,20 +1,6 @@
 import uniqid from "uniqid";
 
 const CocktailCard = (props) => {
-  console.log(props);
-  console.log(props.item.ingredients);
-  props.item.ingredients.forEach((ing) => {
-    console.log(ing.measurement);
-    console.log(ing.ingredient);
-  });
-
-  const buildIngSpan = () => {
-    props.item.ingredients.forEach((ing) => {
-      let ingSpan = ing.directions + ing.ingredient;
-      return ingSpan;
-    });
-  };
-
   return (
     <div className="cocktail-card">
       <span className="card-name">{props.item.name}</span>

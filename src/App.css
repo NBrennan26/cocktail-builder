@@ -20,8 +20,9 @@ body {
 #title {
   margin: auto;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin-left: 3vw;
+  font-family: cursive;
 }
 #navbar {
   display: flex;
@@ -34,7 +35,7 @@ body {
   list-style: none;
   /* font-size: smaller; */
   /* font-size: calc(10px + 1vmin); */
-  font-size: .7em;
+  font-size: 0.7em;
 }
 .nav-links li {
   width: 10vw;
@@ -60,7 +61,7 @@ body {
   border: none;
   border-radius: 8%;
   justify-content: center;
-  font-size: .7em;
+  font-size: 0.7em;
   padding: 1vh 2vw;
   border: 1px solid #c6c3b3;
 }
@@ -120,9 +121,19 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 .cocktail-card {
-  border: 2px solid black;
+  display: grid;
+  text-align: center;
+  margin-top: 1vh;
+}
+.cocktail-card:hover {
+  background: #ccaf9b;
 }
 .card-img {
   height: 150px;
   width: 150px;
+  margin: auto;
+}
+.card-name {
+  font-family: cursive;
+  font-size: larger;
 }
