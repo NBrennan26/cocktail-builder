@@ -12,17 +12,20 @@ function NavBar() {
         </li>
         <li>
           <NavLink className="nav-link" to="/build">
-            Bar <br />Builder
+            Bar <br />
+            Builder
           </NavLink>
         </li>
         <li>
           <NavLink className="nav-link" to="/cocktails">
-            My <br />Cocktails
+            My <br />
+            Cocktails
           </NavLink>
         </li>
         <li>
           <NavLink className="nav-link" to="/drink">
-            Find a <br />Cocktial
+            Find a <br />
+            Cocktial
           </NavLink>
         </li>
         <li>

@@ -33,8 +33,6 @@ body {
   align-items: center;
   justify-content: space-around;
   list-style: none;
-  /* font-size: smaller; */
-  /* font-size: calc(10px + 1vmin); */
   font-size: 0.7em;
 }
 .nav-links li {

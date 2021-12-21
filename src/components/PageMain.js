@@ -137,7 +137,7 @@ function PageMain() {
         setPosCocktails(list);
       });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curIng]);
 
   useEffect(() => {
@@ -157,12 +157,7 @@ function PageMain() {
         />
         <Route
           path="/cocktails"
-          element={
-            <MyCocktails
-              curIng={curIng}
-              posCocktails={posCocktails}
-            />
-          }
+          element={<MyCocktails curIng={curIng} posCocktails={posCocktails} />}
         />
         <Route path="/drink" element={<MakeDrink />} />
         <Route path="/random" element={<RandomDrink />} />
