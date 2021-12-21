@@ -119,14 +119,11 @@ function PageMain() {
 
     for (let i = 0; i < allLength; i++) {
       if (verifyIng(allCocktailList[i].ingredients, curIng)) {
-        console.log("you can make this: ");
-        console.log(allCocktailList[i]);
         if (newList.some((cocktail) => cocktail.id === allCocktailList[i].id)) {
           console.log("already on list");
         } else {
           newList.push(allCocktailList[i]);
         }
-        console.log(newList);
       }
     }
 
@@ -136,10 +133,8 @@ function PageMain() {
   useEffect(() => {
     if (allCocktailList.length > 0) {
       filterCocktailList().then((list) => {
-        console.log("useEffected");
         console.log(list);
-        // check if already in posCocktails
-        // if not, push to posCocktails
+        setPosCocktails(list);
       });
     }
   }, [curIng]);
