@@ -16,6 +16,7 @@ function PageMain() {
   const [curBarInv, setCurBarInv] = useState(IngredientList);
   const [curIng, setCurIng] = useState([]);
   const [allCocktailList, setAllCocktailList] = useState([]);
+  const [posCocktails, setPosCocktails] = useState([]);
   const [ingredientName, setIngredientName] = useState(null);
 
   // Handle select/Unselect from Bar Builder
@@ -101,35 +102,47 @@ function PageMain() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curBarInv]);
 
-  const filterCocktailList = async () => {
-    let newList = [];
-    for (let i = 0; i < allCocktailList.length; i++) {
-      for (let j = 0; j < curIng.length; j++) {
-        let ingCount = 0;
-        allCocktailList[i].ingredients.forEach((ing) => {
-          console.log(ing.ingredient.toLowerCase())
-          console.log(curIng[j])
-          if (ing === curIng[j]) {
-            ingCount += 1
-            console.log(ingCount)
-          }
-        });
-      }
-      newList.push(allCocktailList[i]);
-    }
-    console.log(newList);
-    return newList;
+  // Test whether all ingredients are present for each cocktail
+  // key = needed ingredients (allIngredientList)
+  // test = ingredients present (curIng)
+  const verifyIng = (key, test) => {
+    let testArr = [];
+    test.forEach((item) => {
+      testArr.push(item.ingredient);
+    });
+    return key.every((ing) => testArr.includes(ing.ingredient.toLowerCase()));
   };
 
-  ///// NEED TO FIGURE OUT ABOVE LOOP ^^^ /////
+  const filterCocktailList = async () => {
+    let newList = [];
+    let allLength = allCocktailList.length;
+
+    for (let i = 0; i < allLength; i++) {
+      if (verifyIng(allCocktailList[i].ingredients, curIng)) {
+        console.log("you can make this: ");
+        console.log(allCocktailList[i]);
+        if (newList.some((cocktail) => cocktail.id === allCocktailList[i].id)) {
+          console.log("already on list");
+        } else {
+          newList.push(allCocktailList[i]);
+        }
+        console.log(newList);
+      }
+    }
+
+    return newList;
+  };
 
   useEffect(() => {
     if (allCocktailList.length > 0) {
       filterCocktailList().then((list) => {
         console.log("useEffected");
+        console.log(list);
+        // check if already in posCocktails
+        // if not, push to posCocktails
       });
     }
-  }, [allCocktailList]);
+  }, [curIng]);
 
   useEffect(() => {
     // console.log(curBarInv);
@@ -149,7 +162,11 @@ function PageMain() {
         <Route
           path="/cocktails"
           element={
-            <MyCocktails allCocktailList={allCocktailList} curIng={curIng} />
+            <MyCocktails
+              allCocktailList={allCocktailList}
+              curIng={curIng}
+              posCocktails={posCocktails}
+            />
           }
         />
         <Route path="/drink" element={<MakeDrink />} />
