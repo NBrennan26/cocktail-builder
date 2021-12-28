@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 // import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 // import { db } from "./Firestore";
@@ -18,6 +18,7 @@ function PageMain() {
   const [allCocktailList, setAllCocktailList] = useState([]);
   const [posCocktails, setPosCocktails] = useState([]);
   const [ingredientName, setIngredientName] = useState(null);
+  const isMounted = useRef(false);
 
   // Handle select/Unselect from Bar Builder
   const handleChangeInv = (e) => {
@@ -144,6 +145,66 @@ function PageMain() {
     // console.log(curBarInv);
     // console.log(curIng);
   }, [curBarInv]);
+
+  // // Update localStorage upon change
+  // useEffect(() => {
+  //   if (isMounted.current) {
+  //     console.log("Updating localStorage");
+  //     if (localStorage.getItem("curBarInv") !== curBarInv) {
+  //       console.log("Updating curBarInv");
+  //       localStorage.setItem("curBarInv", curBarInv);
+  //     }
+  //     if (localStorage.getItem("posCocktails") !== posCocktails) {
+  //       console.log("Updating posCocktails");
+  //       localStorage.setItem("posCocktails", posCocktails);
+  //     }
+  //     if (localStorage.getItem("allCocktailList") !== allCocktailList) {
+  //       console.log("Updating allCocktailList");
+  //       localStorage.setItem("allCocktailList", allCocktailList);
+  //     }
+  //   } else {
+  //     isMounted.current = true;
+  //   }
+  // }, [allCocktailList, curBarInv, posCocktails]);
+
+  // // componentDidMount, load and set from localStorage (if present)
+  // useEffect(() => {
+  //   console.log(localStorage);
+  //   console.log(localStorage.length);
+  //   if (localStorage.length > 0) {
+  //     // Update curBarInv to localStorage
+  //     // if (localStorage.getItem("curBarInv") !== null) {
+  //     console.log(localStorage.getItem("curBarInv"));
+  //     if ("curBarInv" in localStorage) {
+  //       try {
+  //         console.log("curBarInv present, setting...");
+  //         const storedInv = JSON.parse(localStorage.getItem("curBarInv"));
+  //         setCurBarInv(storedInv);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     }
+  //     // Update posCocktails to localStorage
+  //     if (localStorage.getItem("posCocktails") !== null) {
+  //       console.log("posCocktails present, setting...");
+  //       const storedPossibles = JSON.parse(
+  //         localStorage.getItem("posCocktails")
+  //       );
+  //       setPosCocktails(storedPossibles);
+  //     }
+  //     // Update allCocktailList to localStorage
+  //     if (localStorage.getItem("allCocktailList") !== null) {
+  //       console.log("allCocktailList present, setting...");
+  //       const storedCocktails = JSON.parse(
+  //         localStorage.getItem("allCocktailList")
+  //       );
+  //       setAllCocktailList(storedCocktails);
+  //     }
+  //   } else {
+  //     // Do Nothing
+  //     console.log("no localStorage. Doing Nothing...");
+  //   }
+  // }, []);
 
   return (
     <div id="page-main">
