@@ -135,6 +135,8 @@ body {
   font-family: cursive;
   font-size: larger;
 }
-.random-display {
-  
+#ran-btn {
+  width: 100px;
+  margin: auto;
+  margin-top: 1vh;
 }

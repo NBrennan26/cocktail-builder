@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CocktailCard from "../utilities/CocktailCard";
 
 const RandomDrink = (props) => {
-  const count = props.posCocktails.length;
-  const num = Math.floor(Math.random() * count);
-  let item = props.posCocktails[num];
+  const [item, setItem] = useState(null);
 
-  if (item !== undefined) {
+  const count = props.posCocktails.length;
+  let num = Math.floor(Math.random() * count);
+  let intItem = props.posCocktails[num];
+
+  useEffect(() => {
+    setItem(intItem);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleClick = () => {
+    let newNum = Math.floor(Math.random() * count);
+    if (newNum !== num) {
+      num = newNum;
+      setItem(props.posCocktails[num]);
+    } else {
+      handleClick();
+    }
+  };
+
+  if (item !== undefined && item !== null) {
     return (
       <div className="main-comp">
         <div className="random-display">
           <CocktailCard item={item} />
         </div>
+        <button id="ran-btn" type="button" onClick={() => handleClick()}>
+          Another
+        </button>
       </div>
     );
   } else {
