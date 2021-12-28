@@ -14,8 +14,8 @@ const BuildBar = (props) => {
   const syrupList = props.curBarInv.filter((item) => {
     return item.type === "syrup";
   });
-  const juiceList = props.curBarInv.filter((item) => {
-    return item.type === "juice";
+  const fruitList = props.curBarInv.filter((item) => {
+    return item.type === "fruit";
   });
   const otherList = props.curBarInv.filter((item) => {
     return item.type === "other";
@@ -90,8 +90,8 @@ const BuildBar = (props) => {
             })}
           </div>
           <div className="ing-grp">
-            <span className="ing-grp-title">Juices</span>
-            {juiceList.map((item) => {
+            <span className="ing-grp-title">Fruits</span>
+            {fruitList.map((item) => {
               return (
                 <label key={uniqid()}>
                   <input
