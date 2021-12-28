@@ -30,7 +30,7 @@ const RandomDrink = (props) => {
           <CocktailCard item={item} />
         </div>
         <button id="ran-btn" type="button" onClick={() => handleClick()}>
-          Another
+          Shuffle
         </button>
       </div>
     );

@@ -25,7 +25,7 @@ function NavBar() {
         <li>
           <NavLink className="nav-link" to="/drink">
             Find a <br />
-            Cocktial
+            Cocktail
           </NavLink>
         </li>
         <li>

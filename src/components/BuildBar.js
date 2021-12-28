@@ -90,7 +90,7 @@ const BuildBar = (props) => {
             })}
           </div>
           <div className="ing-grp">
-            <span className="ing-grp-title">Fruits</span>
+            <span className="ing-grp-title">Fruits & Juices</span>
             {fruitList.map((item) => {
               return (
                 <label key={uniqid()}>
