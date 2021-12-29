@@ -123,6 +123,9 @@ const BuildBar = (props) => {
           </div>
         </form>
       </div>
+      <button id="clear-btn" type="button" onClick={() => props.clearInv()}>
+        Reset Bar
+      </button>
     </div>
   );
 };

@@ -12,3 +12,13 @@ Palette: #312921 #873c1e #a06b39 #ccaf9b #c6c3b3
 Firebase Hosting Links:
   https://cocktailbuilder-112fc.web.app/
   https://cocktailbuilder-112fc.firebaseapp.com/
+
+
+Future Goals: 
+  Edit Login Button to link to GitHub (Or add login ability)
+  Add Effect to Reset Bar button on Hover
+  Add ability to save Cocktails
+  Make My Cocktails a list of saved cocktails
+  Make Find a Cocktail filterable/searchable
+  Do something else with My Bar
+    Maybe images instead of just text? Little Thumbnails? 

@@ -144,14 +144,26 @@ function PageMain() {
   // Update localStorage upon change
   useEffect(() => {
     if (isMounted.current) {
-      if (localStorage.getItem("curBarInv") !== curBarInv && curBarInv.length > 0) {
+      if (
+        localStorage.getItem("curBarInv") !== curBarInv &&
+        curBarInv.length > 0
+      ) {
         localStorage.setItem("curBarInv", JSON.stringify(curBarInv));
       }
-      if (localStorage.getItem("posCocktails") !== posCocktails && posCocktails.length > 0) {
+      if (
+        localStorage.getItem("posCocktails") !== posCocktails &&
+        posCocktails.length > 0
+      ) {
         localStorage.setItem("posCocktails", JSON.stringify(posCocktails));
       }
-      if (localStorage.getItem("allCocktailList") !== allCocktailList && allCocktailList.length > 0) {
-        localStorage.setItem("allCocktailList", JSON.stringify(allCocktailList));
+      if (
+        localStorage.getItem("allCocktailList") !== allCocktailList &&
+        allCocktailList.length > 0
+      ) {
+        localStorage.setItem(
+          "allCocktailList",
+          JSON.stringify(allCocktailList)
+        );
       }
     } else {
       isMounted.current = true;
@@ -172,14 +184,20 @@ function PageMain() {
         }
       }
       // Update posCocktails to localStorage
-      if (localStorage.getItem("posCocktails") !== null && localStorage.getItem("posCocktails").length > 0) {
+      if (
+        localStorage.getItem("posCocktails") !== null &&
+        localStorage.getItem("posCocktails").length > 0
+      ) {
         const storedPossibles = JSON.parse(
           localStorage.getItem("posCocktails")
         );
         setPosCocktails(storedPossibles);
       }
       // Update allCocktailList to localStorage
-      if (localStorage.getItem("allCocktailList") !== null && localStorage.getItem("allCocktailList").length > 0) {
+      if (
+        localStorage.getItem("allCocktailList") !== null &&
+        localStorage.getItem("allCocktailList").length > 0
+      ) {
         const storedCocktails = JSON.parse(
           localStorage.getItem("allCocktailList")
         );
@@ -191,6 +209,14 @@ function PageMain() {
     }
   }, []);
 
+  const clearInv = () => {
+    setCurBarInv(IngredientList);
+    setCurIng([]);
+    setAllCocktailList([]);
+    setPosCocktails([]);
+    setIngredientName(null);
+  };
+
   return (
     <div id="page-main">
       <Routes>
@@ -198,7 +224,11 @@ function PageMain() {
         <Route
           path="/build"
           element={
-            <BuildBar handleChangeInv={handleChangeInv} curBarInv={curBarInv} />
+            <BuildBar
+              handleChangeInv={handleChangeInv}
+              curBarInv={curBarInv}
+              clearInv={clearInv}
+            />
           }
         />
         <Route

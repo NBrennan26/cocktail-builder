@@ -140,3 +140,22 @@ body {
   margin: auto;
   margin-top: 1vh;
 }
+#clear-btn {
+  width: 10vw;
+  margin: auto;
+  margin-bottom: 1vh;
+  padding: 0.5vh;
+  background: red;
+  color: white;
+  border-radius: 5%;
+  border: none;
+}
+#clear-btn:hover {
+  background: repeating-linear-gradient(
+    45deg,
+    crimson,
+    crimson 10px,
+    red 10px,
+    red 20px
+  );
+}
