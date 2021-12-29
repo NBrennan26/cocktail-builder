@@ -141,70 +141,55 @@ function PageMain() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [curIng]);
 
+  // Update localStorage upon change
   useEffect(() => {
-    // console.log(curBarInv);
-    // console.log(curIng);
-  }, [curBarInv]);
+    if (isMounted.current) {
+      if (localStorage.getItem("curBarInv") !== curBarInv && curBarInv.length > 0) {
+        localStorage.setItem("curBarInv", JSON.stringify(curBarInv));
+      }
+      if (localStorage.getItem("posCocktails") !== posCocktails && posCocktails.length > 0) {
+        localStorage.setItem("posCocktails", JSON.stringify(posCocktails));
+      }
+      if (localStorage.getItem("allCocktailList") !== allCocktailList && allCocktailList.length > 0) {
+        localStorage.setItem("allCocktailList", JSON.stringify(allCocktailList));
+      }
+    } else {
+      isMounted.current = true;
+    }
+  }, [allCocktailList, curBarInv, posCocktails]);
 
-  // // Update localStorage upon change
-  // useEffect(() => {
-  //   if (isMounted.current) {
-  //     console.log("Updating localStorage");
-  //     if (localStorage.getItem("curBarInv") !== curBarInv) {
-  //       console.log("Updating curBarInv");
-  //       localStorage.setItem("curBarInv", curBarInv);
-  //     }
-  //     if (localStorage.getItem("posCocktails") !== posCocktails) {
-  //       console.log("Updating posCocktails");
-  //       localStorage.setItem("posCocktails", posCocktails);
-  //     }
-  //     if (localStorage.getItem("allCocktailList") !== allCocktailList) {
-  //       console.log("Updating allCocktailList");
-  //       localStorage.setItem("allCocktailList", allCocktailList);
-  //     }
-  //   } else {
-  //     isMounted.current = true;
-  //   }
-  // }, [allCocktailList, curBarInv, posCocktails]);
-
-  // // componentDidMount, load and set from localStorage (if present)
-  // useEffect(() => {
-  //   console.log(localStorage);
-  //   console.log(localStorage.length);
-  //   if (localStorage.length > 0) {
-  //     // Update curBarInv to localStorage
-  //     // if (localStorage.getItem("curBarInv") !== null) {
-  //     console.log(localStorage.getItem("curBarInv"));
-  //     if ("curBarInv" in localStorage) {
-  //       try {
-  //         console.log("curBarInv present, setting...");
-  //         const storedInv = JSON.parse(localStorage.getItem("curBarInv"));
-  //         setCurBarInv(storedInv);
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     }
-  //     // Update posCocktails to localStorage
-  //     if (localStorage.getItem("posCocktails") !== null) {
-  //       console.log("posCocktails present, setting...");
-  //       const storedPossibles = JSON.parse(
-  //         localStorage.getItem("posCocktails")
-  //       );
-  //       setPosCocktails(storedPossibles);
-  //     }
-  //     // Update allCocktailList to localStorage
-  //     if (localStorage.getItem("allCocktailList") !== null) {
-  //       console.log("allCocktailList present, setting...");
-  //       const storedCocktails = JSON.parse(
-  //         localStorage.getItem("allCocktailList")
-  //       );
-  //       setAllCocktailList(storedCocktails);
-  //     }
-  //   } else {
-  //     // Do Nothing
-  //     console.log("no localStorage. Doing Nothing...");
-  //   }
-  // }, []);
+  // componentDidMount, load and set from localStorage (if present)
+  useEffect(() => {
+    if (localStorage.length > 0) {
+      // Update curBarInv to localStorage
+      // if (localStorage.getItem("curBarInv") !== null) {
+      if ("curBarInv" in localStorage) {
+        try {
+          const storedInv = JSON.parse(localStorage.getItem("curBarInv"));
+          setCurBarInv(storedInv);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      // Update posCocktails to localStorage
+      if (localStorage.getItem("posCocktails") !== null && localStorage.getItem("posCocktails").length > 0) {
+        const storedPossibles = JSON.parse(
+          localStorage.getItem("posCocktails")
+        );
+        setPosCocktails(storedPossibles);
+      }
+      // Update allCocktailList to localStorage
+      if (localStorage.getItem("allCocktailList") !== null && localStorage.getItem("allCocktailList").length > 0) {
+        const storedCocktails = JSON.parse(
+          localStorage.getItem("allCocktailList")
+        );
+        setAllCocktailList(storedCocktails);
+      }
+    } else {
+      // Do Nothing
+      console.log("no localStorage. Doing Nothing...");
+    }
+  }, []);
 
   return (
     <div id="page-main">
