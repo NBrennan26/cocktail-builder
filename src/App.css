@@ -1,28 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600&family=Rock+Salt&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: "Archivo Narrow", sans-serif;
 }
 body {
   max-width: 100%;
-  min-height: 100%;
-  background: #c6c3b3;
+  min-height: 100vh;
+  background-image: url(./images/bar-background.jpg),
+    -moz-linear-gradient(top, #1b80d3 0%, #000b40 40%);
+  background-position: bottom;
+  background-size: 100vw 50vh;
+  background-repeat: no-repeat;
+  background-blend-mode: luminosity;
+  /* background-color:#1a7fd2; */
+  background-color: #020613;
+  color: #ee6c4d;
+  text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  /* background: #c6c3b3; */
+}
+.build-bar-comp {
+  background-color: #020613;
+  background-size: cover;
 }
 #header {
   position: absolute;
   top: 0;
   left: 0;
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   height: 10vh;
   font-size: calc(7px + 2vmin);
-  background: #312921;
-  color: #ede7e3;
+  background: linear-gradient(to top, #020613, #3d5a80);
+  color: #ee6c4d;
+  text-shadow: none;
 }
 #title {
   margin: auto;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.1em;
   margin-left: 3vw;
-  font-family: cursive;
+  font-family: "Rock Salt", cursive;
 }
 #navbar {
   display: flex;
@@ -41,14 +61,14 @@ body {
 }
 .nav-link,
 .nav-link:visited {
-  color: #ede7e3;
+  color: #ee6c4d;
   text-decoration: none;
 }
 .nav-link:hover {
   color: #c6c3b3;
 }
 .nav-link.active {
-  color: #ccaf9b;
+  color: rgba(204, 175, 155, 0.555);
 }
 #login {
   margin: auto;
@@ -78,8 +98,9 @@ body {
   bottom: 0;
   right: 0;
   font-size: calc(1px + 1vmin);
-  background: #312921;
-  color: #ede7e3;
+  background: linear-gradient(to top, #3d5a80, transparent);
+  color: #ee6c4d;
+  text-shadow: none;
 }
 #footer:hover {
   color: white;
@@ -122,9 +143,10 @@ body {
   display: grid;
   text-align: center;
   margin-top: 1vh;
+  border-radius: 5px;
 }
 .cocktail-card:hover {
-  background: #ccaf9b;
+  background: #293241;
 }
 .card-img {
   height: 150px;
@@ -132,8 +154,8 @@ body {
   margin: auto;
 }
 .card-name {
-  font-family: cursive;
-  font-size: larger;
+  font-family: "Archivo Narrow", sans-serif;
+  font-weight: 600;
 }
 #ran-btn {
   width: 100px;

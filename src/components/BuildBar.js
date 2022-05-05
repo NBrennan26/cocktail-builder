@@ -22,7 +22,7 @@ const BuildBar = (props) => {
   });
 
   return (
-    <div className="main-comp">
+    <div className="main-comp build-bar-comp">
       <div>
         <form>
           <div className="ing-grp">

@@ -23,12 +23,6 @@ function NavBar() {
           </NavLink>
         </li>
         <li>
-          <NavLink className="nav-link" to="/drink">
-            Find a <br />
-            Cocktail
-          </NavLink>
-        </li>
-        <li>
           <NavLink className="nav-link" to="/random">
             Random <br /> Cocktail
           </NavLink>

@@ -8,7 +8,6 @@ import IngredientList from "../utilities/IngredientList";
 import MyBar from "./MyBar";
 import MyCocktails from "./MyCocktails";
 import BuildBar from "./BuildBar";
-import MakeDrink from "./MakeDrink";
 import RandomDrink from "./RandomDrink";
 import About from "./About";
 
@@ -235,7 +234,6 @@ function PageMain() {
           path="/cocktails"
           element={<MyCocktails posCocktails={posCocktails} />}
         />
-        <Route path="/drink" element={<MakeDrink />} />
         <Route
           path="/random"
           element={<RandomDrink posCocktails={posCocktails} />}
